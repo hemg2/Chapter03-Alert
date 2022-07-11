@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: UITableViewController {
     var delegate: MapAlertViewController?
     
     override func viewDidLoad() {
@@ -15,13 +15,13 @@ class ListViewController: UIViewController {
         self.preferredContentSize.height = 220
     }
     
-    func tableView(_ tableView: UITableView,
+    override func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return 10
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt
+   override func tableView(_ tableView: UITableView, cellForRowAt
                    indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
@@ -30,7 +30,7 @@ class ListViewController: UIViewController {
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.didSelectRowAt(indexPath: indexPath)
     }
 }
